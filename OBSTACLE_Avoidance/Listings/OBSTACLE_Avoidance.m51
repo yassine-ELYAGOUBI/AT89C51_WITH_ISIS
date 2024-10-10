@@ -1,0 +1,245 @@
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                    03/12/2023  16:31:13  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\STARTUP.obj, .\Objects\OBSTACLE_Avoidance.obj TO .\Objects\OBSTACLE_Avoidance PRIN
+>> T (.\Listings\OBSTACLE_Avoidance.m51)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\STARTUP.obj (?C_STARTUP)
+  .\Objects\OBSTACLE_Avoidance.obj (OBSTACLE_AVOIDANCE)
+
+
+LINK MAP OF MODULE:  .\Objects\OBSTACLE_Avoidance (?C_STARTUP)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0002H     UNIT         _DATA_GROUP_
+            IDATA   000AH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     0077H     UNIT         ?PR?MAIN?OBSTACLE_AVOIDANCE
+            CODE    0877H     0024H     UNIT         ?PR?START?OBSTACLE_AVOIDANCE
+            CODE    089BH     0020H     UNIT         ?PR?_DELAY?OBSTACLE_AVOIDANCE
+            CODE    08BBH     000CH     UNIT         ?C_C51STARTUP
+            CODE    08C7H     0005H     UNIT         ?PR?MOTORR_CLK_DIRECTION?OBSTACLE_AVOIDANCE
+            CODE    08CCH     0005H     UNIT         ?PR?MOTORR_NON_CLK_DIRECTION?OBSTACLE_AVOIDANCE
+            CODE    08D1H     0005H     UNIT         ?PR?MOTORR_STOP?OBSTACLE_AVOIDANCE
+            CODE    08D6H     0005H     UNIT         ?PR?MOTORL_CLK_DIRECTION?OBSTACLE_AVOIDANCE
+            CODE    08DBH     0005H     UNIT         ?PR?MOTORL_NON_CLK_DIRECTION?OBSTACLE_AVOIDANCE
+            CODE    08E0H     0005H     UNIT         ?PR?MOTORL_STOP?OBSTACLE_AVOIDANCE
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\OBSTACLE_Avoidance (?C_STARTUP)
+
+
+SEGMENT                                            DATA_GROUP 
+  +--> CALLED SEGMENT                            START    LENGTH
+----------------------------------------------------------------
+?C_C51STARTUP                                    -----    -----
+  +--> ?PR?MAIN?OBSTACLE_AVOIDANCE
+
+?PR?MAIN?OBSTACLE_AVOIDANCE                      -----    -----
+  +--> ?PR?MOTORR_CLK_DIRECTION?OBSTACLE_AVO...
+  +--> ?PR?MOTORL_STOP?OBSTACLE_AVOIDANCE
+  +--> ?PR?MOTORL_CLK_DIRECTION?OBSTACLE_AVO...
+  +--> ?PR?MOTORR_STOP?OBSTACLE_AVOIDANCE
+  +--> ?PR?START?OBSTACLE_AVOIDANCE
+
+?PR?START?OBSTACLE_AVOIDANCE                     0008H    0002H
+  +--> ?PR?_DELAY?OBSTACLE_AVOIDANCE
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  03/12/2023  16:31:13  PAGE 2
+
+
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\OBSTACLE_Avoidance (?C_STARTUP)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        ?C_STARTUP
+  C:08BBH         SEGMENT       ?C_C51STARTUP
+  I:000AH         SEGMENT       ?STACK
+  C:0000H         PUBLIC        ?C_STARTUP
+  D:00E0H         SYMBOL        ACC
+  D:00F0H         SYMBOL        B
+  D:0083H         SYMBOL        DPH
+  D:0082H         SYMBOL        DPL
+  N:0000H         SYMBOL        IBPSTACK
+  N:0100H         SYMBOL        IBPSTACKTOP
+  N:0080H         SYMBOL        IDATALEN
+  C:08BEH         SYMBOL        IDATALOOP
+  N:0000H         SYMBOL        PBPSTACK
+  N:0100H         SYMBOL        PBPSTACKTOP
+  N:0000H         SYMBOL        PDATALEN
+  N:0000H         SYMBOL        PDATASTART
+  N:0000H         SYMBOL        PPAGE
+  N:0000H         SYMBOL        PPAGEENABLE
+  D:00A0H         SYMBOL        PPAGE_SFR
+  D:0081H         SYMBOL        SP
+  C:08BBH         SYMBOL        STARTUP1
+  N:0000H         SYMBOL        XBPSTACK
+  N:0000H         SYMBOL        XBPSTACKTOP
+  N:0000H         SYMBOL        XDATALEN
+  N:0000H         SYMBOL        XDATASTART
+  C:0000H         LINE#         126
+  C:08BBH         LINE#         133
+  C:08BDH         LINE#         134
+  C:08BEH         LINE#         135
+  C:08BFH         LINE#         136
+  C:08C1H         LINE#         185
+  C:08C4H         LINE#         196
+  -------         ENDMOD        ?C_STARTUP
+
+  -------         MODULE        OBSTACLE_AVOIDANCE
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  C:089BH         PUBLIC        _delay
+  C:08D6H         PUBLIC        motorL_clk_Direction
+  C:0800H         PUBLIC        main
+  C:08E0H         PUBLIC        motorL_stop
+  C:08C7H         PUBLIC        motorR_clk_Direction
+  C:08D1H         PUBLIC        motorR_stop
+  C:0877H         PUBLIC        start
+  B:00A0H.4       PUBLIC        led
+  B:0090H.1       PUBLIC        F_sensor
+  B:0090H.2       PUBLIC        L_sensor
+  B:0090H.0       PUBLIC        R_sensor
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  03/12/2023  16:31:13  PAGE 3
+
+
+  C:08DBH         PUBLIC        motorL_non_clk_Direction
+  B:00A0H.2       PUBLIC        motorL_D1
+  B:00A0H.3       PUBLIC        motorL_D2
+  C:08CCH         PUBLIC        motorR_non_clk_Direction
+  B:00A0H.0       PUBLIC        motorR_D1
+  B:00A0H.1       PUBLIC        motorR_D2
+  -------         PROC          MAIN
+  C:0800H         LINE#         22
+  C:0800H         LINE#         24
+  C:0802H         LINE#         25
+  C:0804H         LINE#         26
+  C:0806H         LINE#         28
+  C:0806H         LINE#         30
+  C:080FH         LINE#         32
+  C:0812H         LINE#         33
+  C:0815H         LINE#         34
+  C:0815H         LINE#         35
+  C:081EH         LINE#         37
+  C:0821H         LINE#         38
+  C:0824H         LINE#         39
+  C:0824H         LINE#         41
+  C:0836H         LINE#         43
+  C:0839H         LINE#         44
+  C:083CH         LINE#         45
+  C:083CH         LINE#         46
+  C:084EH         LINE#         49
+  C:0851H         LINE#         50
+  C:0854H         LINE#         51
+  C:0854H         LINE#         53
+  C:085DH         LINE#         55
+  C:0860H         LINE#         58
+  C:0863H         LINE#         59
+  C:0863H         LINE#         60
+  C:086CH         LINE#         62
+  C:086FH         LINE#         63
+  C:0872H         LINE#         64
+  C:0875H         LINE#         65
+  C:0875H         LINE#         67
+  -------         ENDPROC       MAIN
+  -------         PROC          MOTORR_CLK_DIRECTION
+  C:08C7H         LINE#         73
+  C:08C7H         LINE#         74
+  C:08C9H         LINE#         75
+  C:08CBH         LINE#         76
+  -------         ENDPROC       MOTORR_CLK_DIRECTION
+  -------         PROC          MOTORR_NON_CLK_DIRECTION
+  C:08CCH         LINE#         77
+  C:08CCH         LINE#         78
+  C:08CEH         LINE#         79
+  C:08D0H         LINE#         80
+  -------         ENDPROC       MOTORR_NON_CLK_DIRECTION
+  -------         PROC          MOTORR_STOP
+  C:08D1H         LINE#         81
+  C:08D1H         LINE#         82
+  C:08D3H         LINE#         83
+  C:08D5H         LINE#         84
+  -------         ENDPROC       MOTORR_STOP
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  03/12/2023  16:31:13  PAGE 4
+
+
+  -------         PROC          MOTORL_CLK_DIRECTION
+  C:08D6H         LINE#         88
+  C:08D6H         LINE#         89
+  C:08D8H         LINE#         90
+  C:08DAH         LINE#         91
+  -------         ENDPROC       MOTORL_CLK_DIRECTION
+  -------         PROC          MOTORL_NON_CLK_DIRECTION
+  C:08DBH         LINE#         92
+  C:08DBH         LINE#         93
+  C:08DDH         LINE#         94
+  C:08DFH         LINE#         95
+  -------         ENDPROC       MOTORL_NON_CLK_DIRECTION
+  -------         PROC          MOTORL_STOP
+  C:08E0H         LINE#         96
+  C:08E0H         LINE#         97
+  C:08E2H         LINE#         98
+  C:08E4H         LINE#         99
+  -------         ENDPROC       MOTORL_STOP
+  -------         PROC          START
+  -------         DO            
+  D:0008H         SYMBOL        i
+  -------         ENDDO         
+  C:0877H         LINE#         103
+  C:0877H         LINE#         104
+  C:087CH         LINE#         105
+  C:0880H         LINE#         106
+  C:0882H         LINE#         107
+  C:0889H         LINE#         108
+  C:089AH         LINE#         110
+  -------         ENDPROC       START
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        del
+  -------         DO            
+  D:0004H         SYMBOL        loop
+  D:0002H         SYMBOL        delay_gen
+  -------         ENDDO         
+  C:089BH         LINE#         112
+  C:089BH         LINE#         114
+  C:089EH         LINE#         115
+  C:089EH         LINE#         117
+  C:08A5H         LINE#         118
+  C:08B3H         LINE#         119
+  C:08BAH         LINE#         121
+  -------         ENDPROC       _DELAY
+  -------         ENDMOD        OBSTACLE_AVOIDANCE
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?MOTORR_NON_CLK_DIRECTION?OBSTACLE_AVOIDANCE
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?MOTORL_NON_CLK_DIRECTION?OBSTACLE_AVOIDANCE
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 00E8H BYTE (11%) *
+******************************************************************************
+
+Program Size: data=11.0 xdata=0 code=232
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  03/12/2023  16:31:13  PAGE 5
+
+
+LINK/LOCATE RUN COMPLETE.  2 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,89 @@
+C51 COMPILER V9.60.7.0   DC_MOTEUR                                                         03/11/2023 23:08:17 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE DC_MOTEUR
+OBJECT MODULE PLACED IN .\Objects\DC_MOTEUR.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE DC_MOTEUR.C OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings
+                    -\DC_MOTEUR.lst) TABS(2) OBJECT(.\Objects\DC_MOTEUR.obj)
+
+line level    source
+
+   1          #include <REGX51.H>
+   2          
+   3          sbit sw = P1^0;
+   4          sbit sw1 = P1^1;
+   5          sbit sw2 = P1^2;
+   6          sbit motor_D1 = P2^0;
+   7          sbit motor_D2 = P2^1;
+   8          sbit led = P2^4;
+   9          
+  10          
+  11          void delay (unsigned del);
+  12          void motor_clk_Direction (void);
+  13          void motor_non_clk_Direction (void);
+  14          void motor_stop (void);
+  15          void start (void);
+  16          
+  17          void main(void){
+  18   1        
+  19   1        
+  20   1        while(1){
+  21   2          
+  22   2          if ( sw == 0){motor_stop();start();motor_clk_Direction(); sw1 = sw2=1;}
+  23   2          if ( sw1 == 0){motor_stop();start();motor_non_clk_Direction();sw = sw2=1;}
+  24   2          if ( sw2 == 0){motor_stop(); sw1 = sw =1;}
+  25   2        }
+  26   1        
+  27   1        }
+  28            
+  29          
+  30          
+  31          
+  32          void motor_clk_Direction (void){
+  33   1        motor_D1 = 1;
+  34   1        motor_D2 = 0;
+  35   1      }
+  36          
+  37          void motor_non_clk_Direction (void){
+  38   1          motor_D1 = 0;
+  39   1          motor_D2 = 1;
+  40   1      }
+  41          void motor_stop (void){
+  42   1          motor_D1 = 0;
+  43   1          motor_D2 = 0;
+  44   1      }
+  45          void start (void){
+  46   1        unsigned i = 0;
+  47   1        for(i=0;i<5;i++){
+  48   2          led = ~led;
+  49   2          delay(8);
+  50   2        }
+  51   1          
+  52   1      }
+  53          
+  54          void delay (unsigned del){
+C51 COMPILER V9.60.7.0   DC_MOTEUR                                                         03/11/2023 23:08:17 PAGE 2   
+
+  55   1        
+  56   1        unsigned loop = 0;
+  57   1        unsigned delay_gen = 0;
+  58   1        
+  59   1        for(loop=0;loop<del;loop++){
+  60   2          for(delay_gen=0;delay_gen<10000;delay_gen++);
+  61   2        }
+  62   1      
+  63   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    127    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       2
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

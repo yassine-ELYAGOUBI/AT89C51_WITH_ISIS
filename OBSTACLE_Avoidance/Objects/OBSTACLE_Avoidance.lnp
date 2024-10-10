@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\OBSTACLE_Avoidance.obj" 
+TO ".\Objects\OBSTACLE_Avoidance" 
+PRINT(".\Listings\OBSTACLE_Avoidance.m51")

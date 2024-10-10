@@ -1,0 +1,181 @@
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                    03/11/2023  23:08:21  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\STARTUP.obj, .\Objects\DC_MOTEUR.obj TO .\Objects\DC_MOTEUR PRINT (.\Listings\DC_M
+>> OTEUR.m51)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\STARTUP.obj (?C_STARTUP)
+  .\Objects\DC_MOTEUR.obj (DC_MOTEUR)
+
+
+LINK MAP OF MODULE:  .\Objects\DC_MOTEUR (?C_STARTUP)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0002H     UNIT         _DATA_GROUP_
+            IDATA   000AH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     002CH     UNIT         ?PR?MAIN?DC_MOTEUR
+            CODE    082CH     0024H     UNIT         ?PR?START?DC_MOTEUR
+            CODE    0850H     0020H     UNIT         ?PR?_DELAY?DC_MOTEUR
+            CODE    0870H     000CH     UNIT         ?C_C51STARTUP
+            CODE    087CH     0005H     UNIT         ?PR?MOTOR_CLK_DIRECTION?DC_MOTEUR
+            CODE    0881H     0005H     UNIT         ?PR?MOTOR_NON_CLK_DIRECTION?DC_MOTEUR
+            CODE    0886H     0005H     UNIT         ?PR?MOTOR_STOP?DC_MOTEUR
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\DC_MOTEUR (?C_STARTUP)
+
+
+SEGMENT                                         DATA_GROUP 
+  +--> CALLED SEGMENT                         START    LENGTH
+-------------------------------------------------------------
+?C_C51STARTUP                                 -----    -----
+  +--> ?PR?MAIN?DC_MOTEUR
+
+?PR?MAIN?DC_MOTEUR                            -----    -----
+  +--> ?PR?MOTOR_STOP?DC_MOTEUR
+  +--> ?PR?START?DC_MOTEUR
+  +--> ?PR?MOTOR_CLK_DIRECTION?DC_MOTEUR
+  +--> ?PR?MOTOR_NON_CLK_DIRECTION?DC_MOTEUR
+
+?PR?START?DC_MOTEUR                           0008H    0002H
+  +--> ?PR?_DELAY?DC_MOTEUR
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\DC_MOTEUR (?C_STARTUP)
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  03/11/2023  23:08:21  PAGE 2
+
+
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        ?C_STARTUP
+  C:0870H         SEGMENT       ?C_C51STARTUP
+  I:000AH         SEGMENT       ?STACK
+  C:0000H         PUBLIC        ?C_STARTUP
+  D:00E0H         SYMBOL        ACC
+  D:00F0H         SYMBOL        B
+  D:0083H         SYMBOL        DPH
+  D:0082H         SYMBOL        DPL
+  N:0000H         SYMBOL        IBPSTACK
+  N:0100H         SYMBOL        IBPSTACKTOP
+  N:0080H         SYMBOL        IDATALEN
+  C:0873H         SYMBOL        IDATALOOP
+  N:0000H         SYMBOL        PBPSTACK
+  N:0100H         SYMBOL        PBPSTACKTOP
+  N:0000H         SYMBOL        PDATALEN
+  N:0000H         SYMBOL        PDATASTART
+  N:0000H         SYMBOL        PPAGE
+  N:0000H         SYMBOL        PPAGEENABLE
+  D:00A0H         SYMBOL        PPAGE_SFR
+  D:0081H         SYMBOL        SP
+  C:0870H         SYMBOL        STARTUP1
+  N:0000H         SYMBOL        XBPSTACK
+  N:0000H         SYMBOL        XBPSTACKTOP
+  N:0000H         SYMBOL        XDATALEN
+  N:0000H         SYMBOL        XDATASTART
+  C:0000H         LINE#         126
+  C:0870H         LINE#         133
+  C:0872H         LINE#         134
+  C:0873H         LINE#         135
+  C:0874H         LINE#         136
+  C:0876H         LINE#         185
+  C:0879H         LINE#         196
+  -------         ENDMOD        ?C_STARTUP
+
+  -------         MODULE        DC_MOTEUR
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  C:0881H         PUBLIC        motor_non_clk_Direction
+  B:00A0H.0       PUBLIC        motor_D1
+  B:00A0H.1       PUBLIC        motor_D2
+  C:0850H         PUBLIC        _delay
+  B:0090H.1       PUBLIC        sw1
+  B:0090H.2       PUBLIC        sw2
+  C:0800H         PUBLIC        main
+  C:082CH         PUBLIC        start
+  B:00A0H.4       PUBLIC        led
+  C:087CH         PUBLIC        motor_clk_Direction
+  C:0886H         PUBLIC        motor_stop
+  B:0090H.0       PUBLIC        sw
+  -------         PROC          MAIN
+  C:0800H         LINE#         17
+  C:0800H         LINE#         20
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  03/11/2023  23:08:21  PAGE 3
+
+
+  C:0800H         LINE#         22
+  C:0810H         LINE#         23
+  C:0820H         LINE#         24
+  C:082AH         LINE#         25
+  -------         ENDPROC       MAIN
+  -------         PROC          MOTOR_CLK_DIRECTION
+  C:087CH         LINE#         32
+  C:087CH         LINE#         33
+  C:087EH         LINE#         34
+  C:0880H         LINE#         35
+  -------         ENDPROC       MOTOR_CLK_DIRECTION
+  -------         PROC          MOTOR_NON_CLK_DIRECTION
+  C:0881H         LINE#         37
+  C:0881H         LINE#         38
+  C:0883H         LINE#         39
+  C:0885H         LINE#         40
+  -------         ENDPROC       MOTOR_NON_CLK_DIRECTION
+  -------         PROC          MOTOR_STOP
+  C:0886H         LINE#         41
+  C:0886H         LINE#         42
+  C:0888H         LINE#         43
+  C:088AH         LINE#         44
+  -------         ENDPROC       MOTOR_STOP
+  -------         PROC          START
+  -------         DO            
+  D:0008H         SYMBOL        i
+  -------         ENDDO         
+  C:082CH         LINE#         45
+  C:082CH         LINE#         46
+  C:0831H         LINE#         47
+  C:0835H         LINE#         48
+  C:0837H         LINE#         49
+  C:083EH         LINE#         50
+  C:084FH         LINE#         52
+  -------         ENDPROC       START
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        del
+  -------         DO            
+  D:0004H         SYMBOL        loop
+  D:0002H         SYMBOL        delay_gen
+  -------         ENDDO         
+  C:0850H         LINE#         54
+  C:0850H         LINE#         56
+  C:0853H         LINE#         57
+  C:0853H         LINE#         59
+  C:085AH         LINE#         60
+  C:0868H         LINE#         61
+  C:086FH         LINE#         63
+  -------         ENDPROC       _DELAY
+  -------         ENDMOD        DC_MOTEUR
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 008EH BYTE ( 6%) *
+******************************************************************************
+
+Program Size: data=11.0 xdata=0 code=142
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
